@@ -1,18 +1,7 @@
 import math
 from typing import Callable, List
 import numpy as np
-
-
-def sigmoid(x: float):
-    return 1 / (1 + math.e ** (-x))
-
-
-def sigmoid_grad(x: float):
-    return sigmoid(x) * (1 - sigmoid(x))
-
-
-def sigmoid_grad_simple(o: np.ndarray) -> np.ndarray:
-    return o * (1 - o)
+from ..helpers.helpers import sigmoid, sigmoid_grad
 
 
 class NeuralNetwork:
@@ -24,7 +13,7 @@ class NeuralNetwork:
                  lam: float = 0,
                  act_func: Callable[[float], float] = sigmoid,
                  act_deriv: Callable[[np.ndarray],
-                                     np.ndarray] = sigmoid_grad_simple
+                                     np.ndarray] = sigmoid_grad
                  ):
         NeuralNetwork._verify_init_input(layers)
         self.thetas: List[np.ndarray] = []
