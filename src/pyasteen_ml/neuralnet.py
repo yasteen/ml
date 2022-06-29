@@ -1,7 +1,6 @@
-import math
 from typing import Callable, List
 import numpy as np
-from ..helpers.helpers import sigmoid, sigmoid_grad
+from helpers.helpers import sigmoid, sigmoid_grad
 
 
 class NeuralNetwork:
